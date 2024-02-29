@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdexcept>
 
 enum Days 
 {
@@ -12,39 +13,49 @@ enum Days
     Sunday
 };
 
-std::string day_to_string(Days day)
+void day_to_string(Days day)
 {
     switch (day)
     {
         case Monday:
-            return "Sunday";
+            std::cout << "Monday";
+            break;
         case Tuesday:
-            return "Monday";
+            std::cout << "Monday";
+            break;
         case Wednesday:
-            return "Wednesday";
+            std::cout << "Wednesday";
+            break;
         case Thursday:
-            return "Thursday";
+            std::cout << "Thursday";
+            break;
         case Friday:
-            return "Friday";
+            std::cout << "Friday";
+            break;
         case Saturday:
-            return "Saturday";
+            std::cout << "Saturday";
+            break;
         case Sunday:
-            return "Sunday";
+            std::cout << "Sunday";
+            break;
+        default:
+            break;
     }
 }
 
 struct Date
 {
-    unsigned int day;
-    unsigned int month;
-    unsigned int year;
+    int day;
+    int month;
+    int year;
     Days week_day;
 
-    Date(unsigned int d, unsigned int m, unsigned int y, Days wd) : day(d), month(m), year(y), week_day(wd) {}
+    Date(int d, int m, int y, Days wd) : day(d), month(m), year(y), week_day(wd) {}
 
     void print()
     {
-        std::cout << day_to_string(week_day) << ", " << month << "." << day << "." << year << std::endl;
+        day_to_string(week_day);
+        std::cout << ", " << month << "." << day << "." << year << std::endl;
     }
 };
 
